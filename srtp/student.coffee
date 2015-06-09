@@ -16,9 +16,6 @@ conn.connect()
 
 path = 'http://ugrs.zju.edu.cn/kyxl/student_getXmxsList.action?q='
 
-leftJustified = (str, width, fill)->
-	return Array(width - str.length + 1).join(fill) + str
-
 fetch = (id)->
 	console.log('Fetch: ', id)
 	req = request
@@ -32,4 +29,4 @@ fetch = (id)->
 				console.log('Error:', error) if error
 
 for id in [312010000..312010999]
-	fetch(leftJustified(String(id), 9, '0'))
+	fetch(String(id))
