@@ -14,7 +14,7 @@ conn = mysql.createConnection
 	port: 3306
 conn.connect()
 
-path = 'http://ugrs.zju.edu.cn/kyxl/student_getXmxsList.action?q='
+path = 'http://ugrs.zju.edu.cn/kyxl/daoshi_getXmdsList.action?q='
 
 leftJustified = (str, width, fill)->
 	return Array(width - str.length + 1).join(fill) + str
@@ -26,10 +26,10 @@ fetch = (id)->
 		method: 'GET'
 		jar: jar
 	, (error, response, body)->
-		for student in JSON.parse(body)
-			console.log('Insert:', student.xh)
-			conn.query 'INSERT INTO `grade12` VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)', [student.xh, student.xm, student.id, student.bjmc, student.xymc, student.sj, student.xybh, student.email, student.zymc], (error)->
+		for teacher in JSON.parse(body)
+			console.log('Insert:', teacher.jgh)
+			conn.query 'INSERT INTO `teacher` VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [teacher.jgh, teacher.xm, teacher.xw, teacher.xy, teacher.id, teacher.email, teacher.xb, teacher.lxfs], (error)->
 				console.log('Error:', error) if error
 
-for id in [312010000..312010999]
-	fetch(leftJustified(String(id), 9, '0'))
+for id in [0..9999]
+	fetch(leftJustified(String(id), 6, '0'))
