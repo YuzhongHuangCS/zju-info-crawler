@@ -1,1 +1,2 @@
 http://ugrs.zju.edu.cn/kyxl/student_getXmxsList.action?q=312
+http://ugrs.zju.edu.cn/kyxl/daoshi_getXmdsList.action?q=000

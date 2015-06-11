@@ -20,8 +20,8 @@ leftJustified = (str, width, fill)->
 	return Array(width - str.length + 1).join(fill) + str
 
 fetch = (id)->
-	console.log('Fetch: ', id)
-	req = request
+	console.log('Fetch:', id)
+	request
 		uri: path + id
 		method: 'GET'
 		jar: jar

@@ -17,8 +17,8 @@ conn.connect()
 path = 'http://ugrs.zju.edu.cn/kyxl/student_getXmxsList.action?q='
 
 fetch = (id)->
-	console.log('Fetch: ', id)
-	req = request
+	console.log('Fetch:', id)
+	request
 		uri: path + id
 		method: 'GET'
 		jar: jar
